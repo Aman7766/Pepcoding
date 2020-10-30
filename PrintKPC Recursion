@@ -1,0 +1,32 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+     Scanner s=new Scanner(System.in);
+     String arr[]={".;","abc","def","ghi","jkl","mno","pqrs","tu","vwx","yz"};
+     String str=s.nextLine();
+     printKPC(arr,str,"");
+    }
+
+    public static void printKPC(String arr[],String Que,String Ans) {
+        if(Que.length()==0)
+        {
+        System.out.println(Ans);  
+        return;
+        }
+        char ch=Que.charAt(0); 
+        int num=ch-'0';
+        String Roq=Que.substring(1); 
+        String A=arr[num];  
+        for(int i=0;i<A.length();i++) 
+        {
+        char cc=A.charAt(i);  
+        printKPC(arr,Roq,Ans+cc);  
+        }
+        
+        
+    }
+
+}
