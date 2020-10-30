@@ -1,0 +1,48 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+    Scanner s=new Scanner(System.in);
+    int dr=s.nextInt();
+    int dc=s.nextInt();
+    printMazePaths(0,0,dr-1,dc-1,"");
+    }
+
+    // sr - source row
+    // sc - source column
+    // dr - destination row
+    // dc - destination column
+    public static void printMazePaths(int sr, int sc, int dr, int dc, String psf) {
+     if(sc==dc && sr==dr)
+     {
+         System.out.println(psf);
+         return;
+     }
+    for(int i=1;i<=dc;i++)
+    {
+    if(sc+i<=dc)
+    {
+    printMazePaths(sr,sc+i,dr,dc,psf+"h"+i);    
+    }
+    }
+    for(int i=1;i<=dr;i++)
+    {
+    if(sr+i<=dr)
+    {
+    printMazePaths(sr+i,sc,dr,dc,psf+"v"+i);    
+    }
+    }
+    for(int i=1;i<=dc && i<=dr;i++)
+    {
+    if(sc+i<=dc && sr+i<=dr)
+    {
+    printMazePaths(sr+i,sc+i,dr,dc,psf+"d"+i);    
+    }
+    }
+    
+    
+    }
+
+}
