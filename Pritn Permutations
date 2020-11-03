@@ -1,0 +1,31 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+    Scanner s=new Scanner(System.in);
+    String str=s.nextLine();
+    printPermutations(str,"");
+    
+    }
+
+    public static void printPermutations(String Que,String Ans) {
+        if(Que.length()==0)
+        {
+            System.out.println(Ans);
+            return;
+        }
+        for(int i=0;i<Que.length();i++)
+        {
+        char ch=Que.charAt(i);
+        String Roq=Que.substring(0,i);
+        Roq=Roq+Que.substring(i+1);
+        printPermutations(Roq,Ans+ch);    
+        }
+        
+        
+        
+    }
+
+}
